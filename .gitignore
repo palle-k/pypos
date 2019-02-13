@@ -1,0 +1,5 @@
+train.txt
+test.txt
+.idea/
+*.iml
+__pycache/
