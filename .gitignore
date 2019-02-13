@@ -3,3 +3,9 @@
 __pycache/
 train.txt
 test.txt
+build/
+dist/
+*.egg-info/
+*.egg
+__pycache__/
+*.so
