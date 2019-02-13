@@ -7,6 +7,11 @@ PyPOS uses Hidden Markov Models and Viterbi decoding to determine the most likel
 
 ## Usage
 
+### Installation
+Requires Python 3.6 or higher
+
+    pip3 install pypos
+
 ### Training
 ```python
 from pypos import PartOfSpeechTagger
