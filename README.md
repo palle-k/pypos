@@ -9,7 +9,7 @@ PyPOS uses Hidden Markov Models and Viterbi decoding to determine the most likel
 
 ### Training
 ```python
-from tagger import PartOfSpeechTagger
+from pypos.tagger import PartOfSpeechTagger
 tagger = PartOfSpeechTagger()
 ds = tagger.load_pos_dataset('train.txt')
 tagger.fit(ds).save('tagger.p')
@@ -19,7 +19,7 @@ tagger.fit(ds).save('tagger.p')
 ### Tagging
 
 ```python
-from tagger import PartOfSpeechTagger
+from pypos.tagger import PartOfSpeechTagger
 tagger = PartOfSpeechTagger.load('tagger.p')
 
 # Reproducing the results shown above:
