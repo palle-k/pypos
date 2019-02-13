@@ -1,7 +1,7 @@
 import re
 import pickle
 import numpy as np
-from .hmm import HMM
+from pypos.hmm import HMM
 
 TAGNAMES = {
     'CC': 'Coordinating conjunction', 'CD': 'Cardinal number', 'DT': 'Determiner', 'EX': 'Existential there', 'FW': 'Foreign word', 'IN': 'Preposition or subordinating conjunction', 'JJ': 'Adjective', 'JJR': 'Adjective, comparative',
