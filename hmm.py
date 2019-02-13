@@ -1,6 +1,7 @@
 import numpy as np
 from typing import Optional
 
+
 class HMM:
     def __init__(self, n_states: int, n_emissions: int):
         self.n_states = n_states

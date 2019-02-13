@@ -1,3 +1,5 @@
 .idea/
 *.iml
 __pycache/
+train.txt
+test.txt
