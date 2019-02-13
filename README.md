@@ -1,4 +1,4 @@
-# PyPOS - Python POS tagger
+# PyPOS - Python Part-of-Speech tagger
 
     This is  a  project, which allows its  users to assign part of speech tags to words in a  sentence .
     dt   vbz dt nn     , wdt   vbz    prp$ nns   to vb     nn   in nn     nns  to nns   in dt nn       .
