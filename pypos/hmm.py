@@ -52,20 +52,12 @@ class HMM:
 
         for i, ob in enumerate(x[1:]):
             p_em = self.emission_prob_[:, ob]
-
-            for s in range(self.n_states):
-                in_p = probs[i] * self.transition_prob_[:, s]
-                max_in = np.argmax(in_p)
-                out_p = in_p[max_in] * p_em[s]
-                probs[i+1, s] = out_p
-                paths[i+1, s] = max_in
-
-            # in_p = probs[i] * self.transition_prob_.T
-            # max_in = np.argmax(in_p, axis=1)
-            # out_p = in_p[max_in, np.arange(0, self.n_states)]
-            # out_p *= p_em
-            # probs[i+1] = out_p
-            # paths[i+1] = max_in
+            in_p = probs[i] * self.transition_prob_.T
+            max_in = np.argmax(in_p, axis=1)
+            out_p = in_p[np.arange(0, self.n_states), max_in]
+            out_p *= p_em
+            probs[i+1] = out_p
+            paths[i+1] = max_in
 
         max_out = np.argmax(probs[-1])
         path = [max_out]
@@ -73,10 +65,6 @@ class HMM:
             path.append(paths[i, path[-1]])
 
         return np.array(list(reversed(path)))
-
-
-
-
 
 
     def score(self, x: np.ndarray):

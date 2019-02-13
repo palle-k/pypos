@@ -14,11 +14,10 @@ Requires Python 3.6 or higher
 
 ### Training
 ```python
-from pypos import PartOfSpeechTagger
+from pypos import PartOfSpeechTagger, PartOfSpeechDataset
 tagger = PartOfSpeechTagger()
-ds = tagger.load_pos_dataset('train.txt')
+ds = PartOfSpeechDataset.load('train.txt')
 tagger.fit(ds).save('tagger.p')
-
 ```
 
 ### Tagging

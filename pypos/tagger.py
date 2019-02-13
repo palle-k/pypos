@@ -21,17 +21,10 @@ class PartOfSpeechDataset:
         self.sentences = sentences
 
 
-class PartOfSpeechTagger:
-    def __init__(self):
-        self.hmm_ = None
-        self.word_to_idx_ = None
-        self.idx_to_tag_ = None
-
-
-    def load_pos_dataset(self, filepath):
+    @classmethod
+    def load(cls, filepath: str):
         def map_sentence(s):
             return [line.split(' ')[0:2] for line in s]
-
 
         with open(filepath, 'r') as f:
             contents: str = f.read().lower()
@@ -64,7 +57,14 @@ class PartOfSpeechTagger:
         idx_to_tag = dict(enumerate(sorted(tags)))
         tag_to_idx = dict((tag, idx) for idx, tag in idx_to_tag.items())
 
-        return PartOfSpeechDataset(idx_to_word, word_to_idx, idx_to_tag, tag_to_idx, sentences)
+        return cls(idx_to_word, word_to_idx, idx_to_tag, tag_to_idx, sentences)
+
+
+class PartOfSpeechTagger:
+    def __init__(self):
+        self.hmm_ = None
+        self.word_to_idx_ = None
+        self.idx_to_tag_ = None
 
 
     def fit(self, dataset: PartOfSpeechDataset):
